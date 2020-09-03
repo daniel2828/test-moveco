@@ -1,6 +1,5 @@
 import React from 'react';
 import Flight from '../Flight';
-import BpkCard from 'bpk-component-card';
 class Flights extends React.Component {
   constructor(props) {
     super(props);

@@ -1,0 +1,31 @@
+.block {
+  display: flex;
+  margin-bottom: 5px;
+  &__text-block {
+    margin-top: 5px;
+    margin-right: 35px;
+    &__right {
+      margin-top: 5px;
+      margin-left: auto;
+      height: 80%;
+      width: 100px;
+      text-align: right;
+      &__Direct {
+        color: green;
+      }
+    }
+    &__arrow {
+      margin-top: 15px;
+      margin-right: 35px;
+    }
+  }
+
+  &__logo-image {
+    width: auto;
+    height: 40px;
+    margin-right: 10px;
+  }
+}
+.a {
+  background-color: red;
+}

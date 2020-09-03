@@ -4,6 +4,7 @@ import BpkButton from 'bpk-component-button';
 
 import STYLES from './Flight.scss';
 import BpkText from 'bpk-component-text';
+import Leg from '../Leg';
 const getClassName = className => STYLES[className] || 'UNKNOWN';
 const getId = id => STYLES[id] || 'UNKNOWN';
 class Flight extends React.Component {
@@ -13,7 +14,11 @@ class Flight extends React.Component {
   render() {
     const { itinerarie, legs } = this.props;
     return (
-      <BpkCard>
+      <BpkCard className={getClassName('card')}>
+        {legs.map(item => (
+          <Leg key={item.id} leg={item} />
+        ))}
+
         <div className={getClassName('block')}>
           <div>
             <BpkText tagName="p" id={getId('price')}>
