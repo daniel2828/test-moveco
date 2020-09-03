@@ -12,7 +12,6 @@ const getId = id => STYLES[id] || 'UNKNOWN';
 class Leg extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.leg);
   }
 
   render() {
