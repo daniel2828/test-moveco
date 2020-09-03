@@ -1,19 +1,23 @@
 .block {
   display: flex;
+  margin-top: 10px;
   &__element-block-right {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: auto;
     height: 80%;
-    width: 100px;
+    width: 140px;
+    &__text {
+      font-size: 21px !important;
+    }
   }
 }
 
 #agent {
-  font-size: 12px;
+  font-size: 14px;
   color: #b2b2bf;
 }
 #price {
-  font-size: 26px;
+  font-size: 30px;
   color: black;
 }
 p {

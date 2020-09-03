@@ -1,11 +1,11 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
-import Flight from './Flight';
+import Leg from './Leg';
 
-describe('Flight', () => {
+describe('Leg', () => {
   it('should render correctly', () => {
-    const tree = TestRenderer.create(<Flight />).toJSON();
+    const tree = TestRenderer.create(<Leg />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

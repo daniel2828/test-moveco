@@ -13,7 +13,6 @@ const App = () => (
   <div className={getClassName('App')}>
     <Header />
     <main className={getClassName('App__main')}>
-      <BpkText tagName="p">Over to you...</BpkText>
       <Flights />
     </main>
   </div>

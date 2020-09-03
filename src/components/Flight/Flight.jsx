@@ -29,7 +29,11 @@ class Flight extends React.Component {
             </BpkText>
           </div>
           <BpkButton className={getClassName('block__element-block-right')}>
-            <BpkText tagName="p" bold>
+            <BpkText
+              className={getClassName('block__element-block-right__text')}
+              tagName="p"
+              bold
+            >
               Select
             </BpkText>
           </BpkButton>
