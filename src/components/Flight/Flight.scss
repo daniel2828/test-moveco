@@ -1,0 +1,21 @@
+.block {
+  display: flex;
+  &__element-block-right {
+    margin-top: 5px;
+    margin-left: auto;
+    height: 80%;
+    width: 100px;
+  }
+}
+#agent {
+  font-size: 12px;
+  color: #b2b2bf;
+}
+#price {
+  font-size: 26px;
+  color: black;
+}
+p {
+  padding: 0px;
+  margin: 0px;
+}
