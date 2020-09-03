@@ -5,6 +5,7 @@ import BpkButton from 'bpk-component-button';
 import STYLES from './Flight.scss';
 import BpkText from 'bpk-component-text';
 import Leg from '../Leg';
+
 const getClassName = className => STYLES[className] || 'UNKNOWN';
 const getId = id => STYLES[id] || 'UNKNOWN';
 class Flight extends React.Component {
