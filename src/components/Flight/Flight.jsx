@@ -11,22 +11,33 @@ const getId = id => STYLES[id] || 'UNKNOWN';
 class Flight extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { error: null };
+    this.arrayLegs = [];
+    try {
+      this.itinerarie = this.props.itinerarie;
+      this.props.legs.map(item =>
+        this.arrayLegs.push(<Leg key={item.id} leg={item} />),
+      );
+    } catch (error) {
+      this.setState = { error: true };
+    }
   }
   render() {
-    const { itinerarie, legs } = this.props;
+    if (this.state.error) {
+      return <h1>Error</h1>;
+    }
     return (
       <BpkCard className={getClassName('card')}>
-        {legs.map(item => (
-          <Leg key={item.id} leg={item} />
-        ))}
+        {this.arrayLegs}
 
         <div className={getClassName('block')}>
           <div>
             <BpkText tagName="p" id={getId('price')}>
-              {itinerarie.price}
+              {this.itinerarie && this.itinerarie.price}
             </BpkText>
             <BpkText tagName="p" id={getId('agent')}>
-              {itinerarie.agent}
+              {this.itinerarie && this.itinerarie.agent}
             </BpkText>
           </div>
           <BpkButton className={getClassName('block__element-block-right')}>

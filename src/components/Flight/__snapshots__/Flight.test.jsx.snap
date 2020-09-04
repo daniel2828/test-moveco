@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flight should render correctly 1`] = `
+<div
+  className="bpk-card bpk-card--padded card"
+  role="button"
+>
+  <div
+    className="block"
+  >
+    <div>
+      <p
+        className="bpk-text bpk-text--base"
+        id="price"
+      />
+      <p
+        className="bpk-text bpk-text--base"
+        id="agent"
+      />
+    </div>
+    <button
+      className="bpk-button block__element-block-right"
+      disabled={false}
+      onClick={null}
+      type="button"
+    >
+      <p
+        className="bpk-text bpk-text--base bpk-text--bold block__element-block-right__text"
+      >
+        Select
+      </p>
+    </button>
+  </div>
+</div>
+`;

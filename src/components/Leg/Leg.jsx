@@ -12,39 +12,49 @@ const getId = id => STYLES[id] || 'UNKNOWN';
 class Leg extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { error: null };
+    this.leg = this.props.leg;
+    try {
+      this.arrivalTime = this.leg.arrival_time.substr(
+        this.leg.arrival_time.length - 5,
+      );
+
+      this.departureTime = this.leg.departure_time.substr(
+        this.leg.departure_time.length - 5,
+      );
+      this.srcFile =
+        'https://logos.skyscnr.com/images/airlines/favicon/' +
+        this.leg.airline_id +
+        '.png';
+    } catch (error) {
+      this.state = { error };
+    }
   }
 
   render() {
-    const { leg } = this.props;
-    const arrivalTime = leg.arrival_time.substr(leg.arrival_time.length - 5);
-
-    const departureTime = leg.departure_time.substr(
-      leg.departure_time.length - 5,
-    );
     const AlignedArrow = withAlignment(
       LongArrowRightIcon,
       lineHeightBase,
       iconSizeSm,
     );
+    if (this.state.error) {
+      return <h1>error page</h1>;
+    }
     return (
       <div className={getClassName('block')}>
         <img
           className={getClassName('block__logo-image')}
           alt="Skyscanner"
-          src={
-            'https://logos.skyscnr.com/images/airlines/favicon/' +
-            leg.airline_id +
-            '.png'
-          }
+          src={this.srcFile}
         />
 
         <div className={getClassName('block__text-block')}>
-          <BpkText tagName="p">{departureTime}</BpkText>
+          <BpkText tagName="p">{this.departureTime}</BpkText>
           <BpkText
             tagName="p"
             className={getClassName('block__text-block__light')}
           >
-            {leg.departure_airport}
+            {this.leg.departure_airport}
           </BpkText>
         </div>
         <div className={getClassName('block__text-block__arrow')}>
@@ -53,12 +63,12 @@ class Leg extends React.Component {
           </BpkText>
         </div>
         <div className={getClassName('block__text-block')}>
-          <BpkText tagName="p">{arrivalTime}</BpkText>
+          <BpkText tagName="p">{this.arrivalTime}</BpkText>
           <BpkText
             tagName="p"
             className={getClassName('block__text-block__light')}
           >
-            {leg.arrival_airport}
+            {this.leg.arrival_airport}
           </BpkText>
         </div>
         <div className={getClassName('block__text-block__right')}>
@@ -66,19 +76,20 @@ class Leg extends React.Component {
             tagName="p"
             className={getClassName('block__text-block__light')}
           >
-            {parseInt(leg.duration_mins / 60)}h {leg.duration_mins % 60}
+            {parseInt(this.leg.duration_mins / 60)}h{' '}
+            {this.leg.duration_mins % 60}
           </BpkText>
 
-          {leg.stops > 0 && (
+          {this.leg.stops > 0 && (
             <BpkText
               tagName="p"
               className={getClassName('block__text-block__right__Stop')}
             >
-              <span>{leg.stops} </span>
+              <span>{this.leg.stops} </span>
               <span>stops</span>
             </BpkText>
           )}
-          {leg.stops == 0 && (
+          {this.leg.stops == 0 && (
             <BpkText
               tagName="p"
               bold
