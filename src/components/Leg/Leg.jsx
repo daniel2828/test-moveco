@@ -14,7 +14,10 @@ class Leg extends React.Component {
     super(props);
     this.state = { error: null };
     this.leg = this.props.leg;
+    // Try catch to handle errors in the props
+
     try {
+      // Get the last 5 characters of the string
       this.arrivalTime = this.leg.arrival_time.substr(
         this.leg.arrival_time.length - 5,
       );
@@ -22,6 +25,7 @@ class Leg extends React.Component {
       this.departureTime = this.leg.departure_time.substr(
         this.leg.departure_time.length - 5,
       );
+      // Get the source icon of the leg
       this.srcFile =
         'https://logos.skyscnr.com/images/airlines/favicon/' +
         this.leg.airline_id +

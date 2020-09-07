@@ -14,6 +14,7 @@ class Flight extends React.Component {
 
     this.state = { error: null };
     this.arrayLegs = [];
+    // Added try catch to handle a posible error into the props received
     try {
       this.itinerarie = this.props.itinerarie;
       this.props.legs.map(item =>

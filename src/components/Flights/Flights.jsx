@@ -3,6 +3,7 @@ import Flight from '../Flight';
 class Flights extends React.Component {
   constructor(props) {
     super(props);
+    // Create state
     this.state = {
       jsonLoaded: false,
       itineraries: [],
@@ -11,6 +12,7 @@ class Flights extends React.Component {
     };
   }
   componentDidMount() {
+    // Fetch json file from public folder
     fetch('flights.json')
       .then(res => res.json())
       .then(
@@ -31,6 +33,8 @@ class Flights extends React.Component {
       );
   }
   getLegs = (item, legs) => {
+    // Get the legs from the received items
+    // Match items with proper legs
     let itemsLegs = [];
     legs.map(leg => {
       if (leg.id === item.legs[0] || leg.id === item.legs[1]) {
